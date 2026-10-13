@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#671b32">
+<title>Temi Cakes & Surprises | Osogbo & Ilesha</title>
+<meta name="description" content="Explore cakes, cupcakes, surprise gifts and small chops from Temi Cakes & Surprises. Order via WhatsApp.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --wine:#671b32;
+  --dark:#32101d;
+  --gold:#d5ae65;
+  --cream:#fff8f0;
+  --white:#fff;
+  --ink:#261b20;
+  --muted:#776b70;
+  --line:#eadedb;
+  --green:#16834a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:min(1150px,90%);margin:auto}
+.topbar{background:var(--dark);color:#fff;text-align:center;padding:9px;font-size:10px;letter-spacing:1.4px}
+header{position:sticky;top:0;z-index:30;background:#fffaf5;border-bottom:1px solid var(--line)}
+.nav{width:min(1200px,94%);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{width:44px;height:44px;display:grid;place-items:center;background:var(--wine);color:var(--gold);border:1px solid var(--gold);border-radius:50%;font:700 24px 'Playfair Display',serif}
+.brand-name{font:700 19px 'Playfair Display',serif;color:var(--wine);line-height:1.2}
+.brand-sub{font-size:9px;letter-spacing:2px;color:var(--muted)}
+.nav-links{display:flex;gap:3px;flex-wrap:wrap;justify-content:center}
+.nav-btn{border:0;background:transparent;border-radius:5px;padding:10px 11px;font-size:11px;font-weight:800;color:var(--ink)}
+.nav-btn:hover,.nav-btn.active{background:#f0e3e2;color:var(--wine)}
+.basket-btn{border:0;background:var(--wine);color:#fff;padding:11px 14px;border-radius:5px;font-size:12px;font-weight:800}
+.basket-btn span{color:var(--gold)}
+.page{display:none;min-height:65vh}
+.page.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:.5}to{opacity:1}}
+.hero{min-height:480px;display:flex;align-items:center;color:#fff;background:linear-gradient(90deg,#260d1beF,#260d1b80),url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1600&q=80') center/cover}
+.hero-content{padding:65px 0;max-width:700px}
+.eyebrow{text-transform:uppercase;letter-spacing:2.5px;color:var(--wine);font-size:10px;font-weight:800}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font:700 clamp(43px,7vw,76px)/1.1 'Playfair Display',serif;margin:17px 0}
+.hero h1 span{color:var(--gold)}
+.hero p{max-width:540px;color:#f7e9ed;font-size:14px;margin-bottom:25px}
+.actions{display:flex;gap:11px;flex-wrap:wrap}
+.btn{display:inline-flex;justify-content:center;align-items:center;border:1px solid var(--wine);border-radius:4px;padding:12px 18px;font-size:11px;font-weight:800;transition:.2s}
+.btn-primary{background:var(--wine);color:#fff}
+.btn-primary:hover{background:var(--dark)}
+.btn-outline{color:var(--wine);background:transparent}
+.btn-light-outline{color:white;border-color:white;background:transparent}
+.btn-outline:hover{background:#f0e3e2}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);background:var(--wine);color:white;text-align:center;padding:20px;gap:15px}
+.trust strong{display:block;color:var(--gold);font-size:12px}
+.trust span{font-size:11px;color:#f3e6ea}
+.section{padding:60px 0}
+.heading{text-align:center;margin-bottom:30px}
+.heading h2{font:700 clamp(29px,5vw,43px)/1.2 'Playfair Display',serif;margin:10px 0}
+.heading p{font-size:13px;color:var(--muted);max-width:600px;margin:auto}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.category{position:relative;height:270px;border-radius:7px;overflow:hidden;color:#fff;background:var(--dark)}
+.category img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.category:hover img{transform:scale(1.05)}
+.category:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#210a19ed,transparent 85%)}
+.category-copy{position:absolute;z-index:2;bottom:20px;left:20px;right:15px}
+.category h3{font:700 25px 'Playfair Display',serif}
+.category p{font-size:12px;color:#f4e7eb}
+.category span{display:inline-block;margin-top:8px;color:var(--gold);font-size:10px;font-weight:800}
+.feature{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:35px;padding:35px;background:#f0e3df;border-radius:8px}
+.feature img{height:310px;width:100%;object-fit:cover;border-radius:6px}
+.feature h2{font:700 35px/1.2 'Playfair Display',serif;margin:12px 0}
+.feature p{color:var(--muted);font-size:13px;margin-bottom:18px}
+.banner{background:linear-gradient(120deg,var(--dark),var(--wine));color:#fff;text-align:center;padding:58px 0}
+.banner .eyebrow{color:var(--gold)}
+.banner h1{font:700 clamp(35px,6vw,55px)/1.15 'Playfair Display',serif;margin:12px 0}
+.banner p{max-width:630px;margin:auto;font-size:13px;color:#f1dfe5}
+.products-section{padding:45px 0 60px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:23px}
+.search{flex:1;min-width:180px}
+.search,.filter,.field{width:100%;padding:12px;border:1px solid var(--line);background:#fff;border-radius:5px;color:var(--ink);outline:none}
+.search{width:auto}
+.search:focus,.filter:focus,.field:focus{border-color:var(--gold)}
+.filter{width:auto;min-width:145px}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.product-card{background:#fff;border:1px solid var(--line);border-radius:7px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.product-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px #32101d12}
+.product-image{height:185px;background:#f0e4e1;position:relative;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;left:9px;top:9px;background:var(--wine);color:white;padding:5px 7px;font-size:8px;font-weight:800;border-radius:3px}
+.product-info{padding:13px;display:flex;flex-direction:column;flex:1}
+.product-info h3{font:700 17px/1.3 'Playfair Display',serif;margin-bottom:6px}
+.product-info p{font-size:11px;color:var(--muted);margin-bottom:12px;flex:1}
+.price{font-weight:800;color:var(--wine);font-size:15px;margin-bottom:11px}
+.price small{display:block;color:var(--muted);font-size:9px;font-weight:500}
+.add-btn{background:#fff;border:1px solid var(--wine);color:var(--wine);width:100%;padding:10px;border-radius:4px;font-size:10px;font-weight:800}
+.add-btn:hover{background:var(--wine);color:#fff}
+.note{font-size:11px;color:var(--muted);margin-top:18px}
+.empty{grid-column:1/-1;padding:40px 15px;text-align:center;color:var(--muted)}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px}
+.about-layout img{height:370px;width:100%;object-fit:cover;border-radius:7px}
+.about-layout h2{font:700 36px/1.2 'Playfair Display',serif;margin:12px 0}
+.about-layout p{font-size:13px;color:var(--muted);margin-bottom:13px}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:35px}
+.value{padding:23px;background:white;border:1px solid var(--line);border-radius:7px}
+.value .icon{font-size:25px}
+.value h3{font:700 20px 'Playfair Display',serif;margin:8px 0}
+.value p{font-size:12px;color:var(--muted)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;align-items:start}
+.contact-info{padding:27px;background:var(--dark);color:#fff;border-radius:7px}
+.contact-info h2,.contact-form h2{font:700 28px 'Playfair Display',serif;margin:10px 0}
+.contact-info>p,.contact-form>p{font-size:12px;margin-bottom:20px;color:#e4d1d8}
+.contact-item{padding:13px 0;border-bottom:1px solid #ffffff25}
+.contact-item strong{display:block;font-size:11px;color:var(--gold)}
+.contact-item span,.contact-item a{font-size:13px}
+.contact-form{background:#fff;border:1px solid var(--line);border-radius:7px;padding:26px}
+.contact-form>p{color:var(--muted)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:11px;font-weight:800;margin-bottom:6px}
+.field{font-size:12px}
+textarea.field{min-height:100px;resize:vertical}
+.full{width:100%}
+footer{background:#251018;color:#fff;padding:40px 5% 20px}
+.footer-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px;padding-bottom:25px}
+footer h3{font:700 22px 'Playfair Display',serif;color:var(--gold);margin-bottom:12px}
+footer p,footer a{font-size:12px;color:#e0d0d5}
+footer a{display:block;margin:7px 0}
+.footer-bottom{max-width:1150px;margin:auto;border-top:1px solid #ffffff25;padding-top:16px;font-size:10px;color:#cdbdc2;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.whatsapp{position:fixed;right:15px;bottom:15px;z-index:40;background:var(--green);color:#fff;padding:12px 16px;border-radius:30px;font-size:11px;font-weight:800;box-shadow:0 5px 20px #0003}
+.overlay{position:fixed;inset:0;z-index:100;background:#0008;display:none;justify-content:flex-end}
+.overlay.open{display:flex}
+.drawer{width:min(420px,100%);height:100%;background:var(--cream);padding:20px;display:flex;flex-direction:column}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}
+.drawer-head h2{font:700 26px 'Playfair Display',serif}
+.close{border:0;background:transparent;font-size:28px}
+.cart-items{flex:1;overflow:auto;padding:12px 0}
+.cart-row{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}
+.cart-row h3{font:700 16px 'Playfair Display',serif}
+.cart-row p{font-size:11px;color:var(--muted)}
+.qty{display:flex;gap:9px;align-items:center;margin-top:7px}
+.qty button{width:26px;height:26px;background:white;border:1px solid var(--line);border-radius:3px}
+.remove{border:0;background:transparent;color:var(--wine);font-size:10px}
+.cart-footer{border-top:1px solid var(--line);padding-top:15px}
+.total{display:flex;justify-content:space-between;font-weight:800;margin-bottom:8px}
+.cart-footer .btn{width:100%;margin-top:8px}
+@media(max-width:900px){
+ .nav{justify-content:center}
+ .brand{margin-right:auto}
+ .nav-links{order:3;width:100%}
+ .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:620px){
+ .topbar{font-size:9px}
+ .brand-name{font-size:16px}
+ .brand-logo{width:38px;height:38px}
+ .nav-btn{font-size:9px;padding:8px 6px}
+ .basket-btn{font-size:10px;padding:10px}
+ .hero{min-height:420px}
+ .hero h1{font-size:45px}
+ .trust{grid-template-columns:1fr;gap:10px}
+ .section{padding:42px 0}
+ .categories{grid-template-columns:1fr}
+ .category{height:230px}
+ .feature{grid-template-columns:1fr;padding:20px;gap:22px}
+ .feature img{height:230px}
+ .feature h2{font-size:30px}
+ .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .product-image{height:140px}
+ .product-info{padding:10px}
+ .product-info h3{font-size:15px}
+ .product-info p{font-size:10px}
+ .price{font-size:13px}
+ .tag{font-size:7px}
+ .about-layout,.contact-grid{grid-template-columns:1fr}
+ .about-layout img{height:260px}
+ .about-layout h2{font-size:30px}
+ .values{grid-template-columns:1fr}
+ .contact-form,.contact-info{padding:20px}
+ .form-row{grid-template-columns:1fr}
+ .footer-grid{grid-template-columns:1fr;gap:22px}
+ .whatsapp{right:10px;bottom:10px;padding:11px 13px}
+}
+</style>
+</head>
+
+<body>
+<div class="topbar">MADE WITH LOVE • BAKED WITH CARE • CREATED FOR YOUR SPECIAL MOMENTS</div>
+
+<header>
+<nav class="nav">
+  <a href="#home" class="brand" onclick="showPage('home');return false">
+    <div class="brand-logo">T</div>
+    <div>
+      <div class="brand-name">Temi Cakes</div>
+      <div class="brand-sub">& SURPRISES</div>
+    </div>
+  </a>
+
+  <div class="nav-links">
+    <button class="nav-btn active" data-page="home" onclick="showPage('home')">HOME</button>
+    <button class="nav-btn" data-page="cakes" onclick="showPage('cakes')">CAKES</button>
+    <button class="nav-btn" data-page="surprises" onclick="showPage('surprises')">SURPRISES</button>
+    <button class="nav-btn" data-page="about" onclick="showPage('about')">ABOUT US</button>
+    <button class="nav-btn" data-page="contact" onclick="showPage('contact')">CONTACT</button>
+  </div>
+  <button class="basket-btn" onclick="openCart()">BASKET (<span id="cartCount">0</span>)</button>
+</nav>
+</header>
+
+<main>
+<!-- PAGE 1: HOME -->
+<section class="page active" id="home">
+  <div class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Sweetness in every detail</div>
+      <h1>Make Every Moment <span>Unforgettable.</span></h1>
+      <p>Beautiful cakes. Thoughtful surprises. Delicious treats. Let us help you celebrate the people and moments that matter most.</p>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="showPage('cakes')">EXPLORE OUR CAKES ↗</button>
+        <button class="btn btn-light-outline" onclick="showPage('surprises')">DISCOVER SURPRISES</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div><strong>MADE WITH LOVE</strong><span>Thoughtfully prepared for you</span></div>
+    <div><strong>SPECIAL OCCASIONS</strong><span>Birthdays, anniversaries and more</span></div>
+    <div><strong>OSOGBO & ILESHA</strong><span>Contact us about delivery</span></div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="heading">
+        <div class="eyebrow">Explore our world</div>
+        <h2>Something Special for Every Occasion</h2>
+        <p>Find cakes, gifts and party treats for the people and moments you love.</p>
+      </div>
+      <div class="categories">
+        <a href="#" class="category" onclick="showPage('cakes');return false">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" alt="Celebration cake" onerror="this.onerror=null;this.src='https://placehold.co/700x450/671b32/ffffff?text=Beautiful+Cakes'">
+          <div class="category-copy"><h3>Beautiful Cakes</h3><p>Make their day extra sweet.</p><span>EXPLORE CAKES →</span></div>
+        </a>
+        <a href="#" class="category" onclick="showPage('surprises');return false">
+          <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=700&q=80" alt="Wrapped gifts" onerror="this.onerror=null;this.src='https://placehold.co/700x450/671b32/ffffff?text=Gift+Surprises'">
+          <div class="category-copy"><h3>Gift Surprises</h3><p>Turn ordinary days into memories.</p><span>EXPLORE GIFTS →</span></div>
+        </a>
+        <a href="#" class="category" onclick="showPage('surprises');return false">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80" alt="Party snacks" onerror="this.onerror=null;this.src='https://placehold.co/700x450/671b32/ffffff?text=Small+Chops'">
+          <div class="category-copy"><h3>Small Chops</h3><p>Little bites, big enjoyment.</p><span>SEE OPTIONS →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container feature">
+      <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=900&q=80" alt="Decorated cake" onerror="this.onerror=null;this.src='https://placehold.co/900x600/f0e3df/671b32?text=Your+Special+Cake'">
+      <div>
+        <div class="eyebrow">Your vision, our creativity</div>
+        <h2>Every Celebration Deserves Something Beautiful.</h2>
+        <p>Planning a birthday, anniversary, family event or surprise? Tell us your idea, preferred date and budget so we can discuss your options.</p>
+        <button class="btn btn-primary" onclick="showPage('contact')">PLAN YOUR ORDER ↗</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:white">
+    <div class="container heading">
+      <div class="eyebrow">Let's make it memorable</div>
+      <h2>Your Next Celebration Starts Here</h2>
+      <p>Explore our products or contact us to plan something special.</p>
+      <div class="actions" style="justify-content:center;margin-top:20px">
+        <button class="btn btn-primary" onclick="showPage('cakes')">SHOP CAKES</button>
+        <button class="btn btn-outline" onclick="showPage('contact')">CONTACT TEMI</button>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- PAGE 2: CAKES -->
+<section class="page" id="cakes">
+  <div class="banner">
+    <div class="container">
+      <div class="eyebrow">Fresh ideas for sweet moments</div>
+      <h1>Our Cake Collection</h1>
+      <p>Explore cakes and cupcakes for birthdays, celebrations and everyday treats.</p>
+    </div>
+  </div>
+  <section class="products-section">
+    <div class="container">
+      <div class="toolbar">
+        <input class="search" id="cakeSearch" placeholder="Search cakes..." oninput="renderProducts('cakes')">
+        <select class="filter" id="cakeFilter" onchange="renderProducts('cakes')">
+          <option value="all">All cakes</option>
+          <option value="foil">Foil cakes</option>
+          <option value="bento">Bento cakes</option>
+          <option value="birthday">Birthday cakes</option>
+          <option value="celebration">Celebration cakes</option>
+          <option value="cupcakes">Cupcakes</option>
+        </select>
+      </div>
+      <div class="product-grid" id="cakeProducts"></div>
+      <p class="note">Starting prices depend on size, flavour and design. Confirm the final quotation before payment.</p>
+    </div>
+  </section>
+</section>
+
+<!-- PAGE 3: SURPRISES -->
+<section class="page" id="surprises">
+  <div class="banner">
+    <div class="container">
+      <div class="eyebrow">Gifts, treats and happy moments</div>
+      <h1>Surprises & Small Chops</h1>
+      <p>Gift ideas and party treats for birthdays, anniversaries, celebrations and special occasions.</p>
+    </div>
+  </div>
+  <section class="products-section">
+    <div class="container">
+      <div class="toolbar">
+        <input class="search" id="surpriseSearch" placeholder="Search gifts and treats..." oninput="renderProducts('surprises')">
+        <select class="filter" id="surpriseFilter" onchange="renderProducts('surprises')">
+          <option value="all">All options</option>
+          <option value="gift">Gift packages</option>
+          <option value="romantic">Romantic surprises</option>
+          <option value="chops">Small chops</option>
+          <option value="party">Party packages</option>
+        </select>
+      </div>
+      <div class="product-grid" id="surpriseProducts"></div>
+      <p class="note">For products whose prices are estimates, contact us for a current quotation and package details.</p>
+    </div>
+  </section>
+</section>
+
+<!-- PAGE 4: ABOUT US -->
+<section class="page" id="about">
+  <div class="banner">
+    <div class="container">
+      <div class="eyebrow">A little about our brand</div>
+      <h1>Made for Moments That Matter</h1>
+      <p>We believe the small details can make a celebration feel special.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="about-layout">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=80" alt="Baked treats in a bakery" onerror="this.onerror=null;this.src='https://placehold.co/900x600/f0e3df/671b32?text=Temi+Cakes+%26+Surprises'">
+        <div>
+          <div class="eyebrow">Welcome to Temi</div>
+          <h2>Sweet Treats. Thoughtful Surprises. Lasting Memories.</h2>
+          <p>Temi Cakes & Surprises offers cakes, gift ideas and small-chops options for special occasions.</p>
+          <p>Whether you are celebrating a birthday, appreciating a loved one or preparing for an event, we want to help you find an option that fits your needs and budget.</p>
+          <p>We serve customers around Osogbo and Ilesha. Contact us to discuss your design, date, budget and delivery arrangements.</p>
+          <button class="btn btn-primary" onclick="showPage('contact')">LET'S PLAN SOMETHING ↗</button>
+        </div>
+      </div>
+      <div class="values">
+        <div class="value"><div class="icon">🎂</div><h3>Our Mission</h3><p>To make celebrations more memorable through thoughtful treats, creative ideas and attentive customer service.</p></div>
+        <div class="value"><div class="icon">✨</div><h3>Our Vision</h3><p>To become a trusted celebration brand known for creativity, care and meaningful customer experiences.</p></div>
+        <div class="value"><div class="icon">💛</div><h3>Our Values</h3><p>Care, creativity, clear communication and helping customers plan within their needs and budget.</p></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- PAGE 5: CONTACT -->
+<section class="page" id="contact">
+  <div class="banner">
+    <div class="container">
+      <div class="eyebrow">We'd love to hear from you</div>
+      <h1>Let's Make It Special</h1>
+      <p>Tell us what you are celebrating, when you need it and what you have in mind.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow" style="color:var(--gold)">Get in touch</div>
+        <h2>Let's Talk About Your Order.</h2>
+        <p>Message us to discuss designs, quantities, prices and delivery arrangements.</p>
+        <div class="contact-item"><strong>WHATSAPP / PHONE</strong><a href="https://wa.me/2349028630003" target="_blank" rel="noopener">09028630003</a></div>
+        <div class="contact-item"><strong>LOCATIONS SERVED</strong><span>Osogbo & Ilesha, Osun State</span></div>
+        <div class="contact-item"><strong>TIKTOK</strong><span>Temi cake and surprises</span></div>
+        <div class="contact-item"><strong>ORDERING TIP</strong><span>Share your date, budget, quantity and preferred design.</span></div>
+        <a class="btn btn-primary" style="margin-top:22px" href="https://wa.me/2349028630003" target="_blank" rel="noopener">CHAT ON WHATSAPP ↗</a>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <h2>Plan Your Order</h2>
+        <p>Fill this in to prepare a message for WhatsApp. Your order is not confirmed until we respond.</p>
+        <div class="form-row">
+          <div class="form-group"><label for="customerName">Your name *</label><input class="field" id="customerName" required placeholder="Enter your name"></div>
+          <div class="form-group"><label for="customerPhone">Phone number</label><input class="field" id="customerPhone" type="tel" placeholder="Your number"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="orderType">What do you need? *</label><select class="field" id="orderType" required><option value="">Choose an option</option><option>Cake</option><option>Cupcakes</option><option>Surprise gift</option><option>Small chops</option><option>Party package</option><option>Multiple items</option><option>Other enquiry</option></select></div>
+          <div class="form-group"><label for="orderDate">Date needed</label><input class="field" id="orderDate" type="date"></div>
+        </div>
+        <div class="form-group"><label for="orderBudget">Budget (₦)</label><input class="field" id="orderBudget" type="number" min="0" placeholder="Your budget"></div>
+        <div class="form-group"><label for="orderDetails">Describe your order *</label><textarea class="field" id="orderDetails" required placeholder="Design, flavour, quantity, location and other details..."></textarea></div>
+        <button class="btn btn-primary full" type="submit">SEND ENQUIRY ON WHATSAPP ↗</button>
+      </form>
+    </div>
+  </section>
+</section>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div><h3>Temi Cakes & Surprises</h3><p>Making celebrations sweeter with cakes, thoughtful gift ideas and party treats.</p><p style="margin-top:10px">Osogbo & Ilesha, Osun State, Nigeria.</p></div>
+    <div><h3>Explore</h3><a href="#" onclick="showPage('home');return false">Home</a><a href="#" onclick="showPage('cakes');return false">Cakes</a><a href="#" onclick="showPage('surprises');return false">Surprises & Small Chops</a><a href="#" onclick="showPage('about');return false">About Us</a></div>
+    <div><h3>Contact</h3><a href="https://wa.me/2349028630003" target="_blank" rel="noopener">WhatsApp: 09028630003</a><a href="#" onclick="showPage('contact');return false">Plan an Order</a><p>Final prices and availability are confirmed directly with us.</p></div>
+  </div>
+  <div class="footer-bottom"><span>© <span id="year"></span> Temi Cakes & Surprises</span><span>Created with care for life's sweetest moments.</span></div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/2349028630003" target="_blank" rel="noopener">☏ CHAT WITH TEMI</a>
+
+<div class="overlay" id="cartOverlay" onclick="overlayClose(event)">
+  <aside class="drawer">
+    <div class="drawer-head"><h2>Your Basket 🛍️</h2><button class="close" onclick="closeCart()" aria-label="Close basket">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="total"><span>Estimated total</span><span id="cartTotal">₦0</span></div>
+      <p class="note" style="margin:0 0 8px">Prices and availability will be confirmed on WhatsApp.</p>
+      <button class="btn btn-primary" onclick="checkoutCart()">ORDER VIA WHATSAPP ↗</button>
+      <button class="btn btn-outline" onclick="closeCart()">CONTINUE SHOPPING</button>
+    </div>
+  </aside>
+</div>
+
+<script>
+const WHATSAPP_NUMBER = "2349028630003";
+
+/* Products: confirmed:true means the price was supplied by the owner.
+   Other prices are suggestions and should be verified before publishing. */
+const products = [
+{id:1,name:"Classic Foil Cake",category:"cakes",type:"foil",price:2500,confirmed:true,desc:"A simple cake for small celebrations.",photo:"photo-1578985545062-69928b1d9587"},
+{id:2,name:"Bento Cake",category:"cakes",type:"bento",price:10000,confirmed:true,desc:"A cute mini cake for a special moment.",photo:"photo-1571115177098-24ec42ed204d"},
+{id:3,name:"Birthday Cake",category:"cakes",type:"birthday",price:15000,desc:"A celebratory cake with your chosen design.",photo:"photo-1558301211-0d8c8ddee6ec"},
+{id:4,name:"Two-Tier Celebration Cake",category:"cakes",type:"celebration",price:35000,desc:"A statement cake for a bigger celebration.",photo:"photo-1542826438-bd32f43d626f"},
+{id:5,name:"Cupcake Box",category:"cakes",type:"cupcakes",price:10000,confirmed:true,desc:"Cupcakes for sharing and gifting. Quantity to be confirmed.",photo:"photo-1426869884541-df7117556757"},
+{id:6,name:"Chocolate Cake",category:"cakes",type:"birthday",price:18000,desc:"A chocolate-inspired celebration cake.",photo:"photo-1606313564200-e75d5e30476c"},
+{id:7,name:"Floral Cake",category:"cakes",type:"celebration",price:22000,desc:"An elegant cake with floral decoration.",photo:"photo-1535141192574-5d4897c12636"},
+{id:8,name:"Minimalist Cake",category:"cakes",type:"birthday",price:12000,desc:"A clean, simple and modern cake design.",photo:"photo-1563729784474-d77dbb933a9e"},
+{id:9,name:"Red Velvet Cake",category:"cakes",type:"birthday",price:20000,desc:"A red velvet-inspired celebration cake.",photo:"photo-1586788680434-30d324b2d46f"},
+{id:10,name:"Anniversary Cake",category:"cakes",type:"celebration",price:25000,desc:"A cake idea for celebrating togetherness.",photo:"photo-1464349095431-e9a21285b5f3"},
+{id:11,name:"Kids' Party Cake",category:"cakes",type:"birthday",price:20000,desc:"A fun themed cake for a children's party.",photo:"photo-1565958011703-44f9829ba187"},
+{id:12,name:"Cake & Cupcake Set",category:"cakes",type:"celebration",price:28000,desc:"A coordinated cake and cupcake package.",photo:"photo-1488477181946-6428a0291777"},
+{id:13,name:"Mini Cupcake Box",category:"cakes",type:"cupcakes",price:8000,confirmed:true,desc:"Mini cupcakes for sharing. Quantity to be confirmed.",photo:"photo-1519869325930-281384150729"},
+{id:14,name:"Premium Custom Cake",category:"cakes",type:"celebration",price:35000,desc:"A detailed custom cake design.",photo:"photo-1535254973040-607b474cb50d"},
+{id:15,name:"Simple Celebration Cake",category:"cakes",type:"birthday",price:12000,desc:"A simple cake for an intimate occasion.",photo:"photo-1576618148400-f54bed99fcfd"},
+{id:16,name:"Luxury Tier Cake",category:"cakes",type:"celebration",price:50000,desc:"A large statement cake for a special event.",photo:"photo-1505236858219-8359eb29e329"},
+
+{id:17,name:"Surprise Gift Box",category:"surprises",type:"gift",price:12000,desc:"A gift box concept to customise.",photo:"photo-1513201099705-a9746e1e201f"},
+{id:18,name:"Rose Gift Package",category:"surprises",type:"romantic",price:15000,desc:"A rose-themed gift arrangement.",photo:"photo-1490750967868-88aa4486c946"},
+{id:19,name:"Birthday Surprise Package",category:"surprises",type:"gift",price:25000,desc:"A birthday gift bundle concept.",photo:"photo-1513883049090-d0b7439799bf"},
+{id:20,name:"Chocolate Gift Box",category:"surprises",type:"gift",price:8000,desc:"A sweet gift-box idea.",photo:"photo-1548907040-4d42baa1a6e0"},
+{id:21,name:"Romantic Gift Set",category:"surprises",type:"romantic",price:20000,desc:"A thoughtful package for a special person.",photo:"photo-1518895949257-7621c3c786d7"},
+{id:22,name:"Teddy Bear Gift Set",category:"surprises",type:"gift",price:35000,confirmed:true,desc:"A teddy bear gift package. Confirm the included items.",photo:"photo-1559454403-b8fb88521f11"},
+{id:23,name:"Celebration Gift Hamper",category:"surprises",type:"gift",price:30000,desc:"A hamper concept with customisable contents.",photo:"photo-1549465220-1a8b9238cd48"},
+{id:24,name:"Anniversary Surprise",category:"surprises",type:"romantic",price:25000,desc:"A package for a special milestone.",photo:"photo-1519741497674-611481863552"},
+{id:25,name:"Custom Surprise Package",category:"surprises",type:"gift",price:35000,desc:"Discuss your preferred items and budget.",photo:"photo-1529636798458-92182e662485"},
+{id:26,name:"Party Chops Tray",category:"surprises",type:"chops",price:20000,desc:"A tray concept for gatherings. Quantity to be confirmed.",photo:"photo-1601050690597-df0568f70950"},
+{id:27,name:"Small Chops Box",category:"surprises",type:"chops",price:13000,confirmed:true,desc:"A small party-snack package.",photo:"photo-1626082927389-6cd097cdc6ec"},
+{id:28,name:"Mini Party Package",category:"surprises",type:"party",price:40000,confirmed:true,desc:"A mini celebration package. Confirm inclusions before ordering.",photo:"photo-1511795409834-ef04bbd61622"},
+{id:29,name:"Event Finger Foods",category:"surprises",type:"chops",price:15000,desc:"Finger foods for an event. Menu and quantity to be confirmed.",photo:"photo-1565299624946-b28f40a0ae38"},
+{id:30,name:"Birthday Treat Bundle",category:"surprises",type:"party",price:20000,desc:"A birthday treat bundle concept.",photo:"photo-1513151233558-d860c5398176"},
+{id:31,name:"Snack Party Bundle",category:"surprises",type:"chops",price:25000,desc:"A snack bundle concept for group occasions.",photo:"photo-1621939514649-280e2aa2f736"}
+];
+
+let basket = [];
+
+function showPage(id){
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  const target = document.getElementById(id);
+  if(target) target.classList.add("active");
+  document.querySelectorAll(".nav-btn").forEach(b => b.classList.toggle("active",b.dataset.page===id));
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(id==="cakes" || id==="surprises") renderProducts(id);
+}
+
+function money(n){
+  return "₦" + Number(n).toLocaleString("en-NG");
+}
+
+/* Every product photo has two fallbacks.
+   If Unsplash fails, try a second source, then show a local-style placeholder image. */
+function imageUrl(photo){
+  return "https://images.unsplash.com/" + photo + "?auto=format&fit=crop&w=700&q=80";
+}
+function fallbackImage(img){
+  if(!img.dataset.fallback){
+    img.dataset.fallback="second";
+    img.src="https://loremflickr.com/700/500/cake,dessert?lock="+img.dataset.id;
+  }else{
+    img.onerror=null;
+    img.src="https://placehold.co/700x500/f0e3df/671b32?text=Temi+Cakes+%26+Surprises";
+  }
+}
+
+function renderProducts(category){
+  const cake = category==="cakes";
+  const search = document.getElementById(cake?"cakeSearch":"surpriseSearch").value.toLowerCase().trim();
+  const filter = document.getElementById(cake?"cakeFilter":"surpriseFilter").value;
+  const target = document.getElementById(cake?"cakeProducts":"surpriseProducts");
+
+  const list = products.filter(p =>
+    p.category===category &&
+    (p.name+" "+p.desc+" "+p.type).toLowerCase().includes(search) &&
+    (filter==="all" || p.type===filter)
+  );
+
+  if(!list.length){
+    target.innerHTML='<div class="empty">No matching products found. Try another search or category.</div>';
+    return;
+  }
+
+  target.innerHTML=list.map(p=>`
+    <article class="product-card">
+      <div class="product-image">
+        <img src="${imageUrl(p.photo)}" alt="${p.name}" loading="lazy" data-id="${p.id}" onerror="fallbackImage(this)">
+        <span class="tag">${p.confirmed?"CONFIRMED PRICE":"PRICE ESTIMATE"}</span>
+      </div>
+      <div class="product-info">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="price">${money(p.price)}<small>${p.confirmed?"Owner-supplied price":"Suggested price — confirm with us"}</small></div>
+        <button class="add-btn" onclick="addToBasket(${p.id})">+ ADD TO BASKET</button>
+      </div>
+    </article>
+  `).join("");
+}
+
+function addToBasket(id){
+  const p=products.find(x=>x.id===id);
+  if(!p)return;
+  const existing=basket.find(x=>x.id===id);
+  if(existing)existing.qty++;
+  else basket.push({...p,qty:1});
+  updateBasket();
+}
+
+function updateBasket(){
+  const count=basket.reduce((s,p)=>s+p.qty,0);
+  document.getElementById("cartCount").textContent=count;
+  const target=document.getElementById("cartItems");
+
+  if(!basket.length){
+    target.innerHTML='<div class="empty">Your basket is empty.<br><br>Explore our collection and add something special.</div>';
+    document.getElementById("cartTotal").textContent=money(0);
+    return;
+  }
+
+  target.innerHTML=basket.map(p=>`
+    <div class="cart-row">
+      <div>
+        <h3>${p.name}</h3>
+        <p>${money(p.price)} each${p.confirmed?"":" (estimate)"}</p>
+        <div class="qty">
+          <button onclick="changeQty(${p.id},-1)" aria-label="Decrease quantity">−</button>
+          <span>${p.qty}</span>
+          <button onclick="changeQty(${p.id},1)" aria-label="Increase quantity">+</button>
+          <button class="remove" onclick="removeItem(${p.id})">Remove</button>
+        </div>
+      </div>
+      <strong>${money(p.price*p.qty)}</strong>
+    </div>
+  `).join("");
+
+  document.getElementById("cartTotal").textContent=money(basket.reduce((s,p)=>s+p.price*p.qty,0));
+}
+
+function changeQty(id,n){
+  const p=basket.find(x=>x.id===id);
+  if(!p)return;
+  p.qty+=n;
+  if(p.qty<=0)basket=basket.filter(x=>x.id!==id);
+  updateBasket();
+}
+function removeItem(id){
+  basket=basket.filter(x=>x.id!==id);
+  updateBasket();
+}
+function openCart(){
+  updateBasket();
+  document.getElementById("cartOverlay").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeCart(){
+  document.getElementById("cartOverlay").classList.remove("open");
+  document.body.style.overflow="";
+}
+function overlayClose(event){
+  if(event.target.id==="cartOverlay")closeCart();
+}
+
+function checkoutCart(){
+  if(!basket.length){
+    alert("Your basket is empty. Please add a product first.");
+    return;
+  }
+  let lines=["Hello Temi Cakes & Surprises! I would like to enquire about this order:",""];
+  basket.forEach(p=>lines.push(p.name+" x "+p.qty+" — "+money(p.price*p.qty)+(p.confirmed?"":" (estimated price)")));
+  const total=basket.reduce((s,p)=>s+p.price*p.qty,0);
+  lines.push("","Estimated total: "+money(total),"","Please confirm availability, final prices and delivery arrangements.");
+  window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(lines.join("\n")),"_blank");
+}
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  const name=document.getElementById("customerName").value.trim();
+  const phone=document.getElementById("customerPhone").value.trim();
+  const type=document.getElementById("orderType").value;
+  const date=document.getElementById("orderDate").value;
+  const budget=document.getElementById("orderBudget").value;
+  const details=document.getElementById("orderDetails").value.trim();
+
+  let lines=[
+    "Hello Temi Cakes & Surprises! I would like to make an enquiry.",
+    "",
+    "Name: "+name,
+    phone?"Phone: "+phone:"",
+    "Order type: "+type,
+    date?"Date needed: "+date:"",
+    budget?"Budget: "+money(budget):"",
+    "Details: "+details,
+    "",
+    "Please confirm the price and availability."
+  ].filter(Boolean);
+
+  window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(lines.join("\n")),"_blank");
+});
+
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts("cakes");
+renderProducts("surprises");
+updateBasket();
+</script>
+</body>
+</html>
